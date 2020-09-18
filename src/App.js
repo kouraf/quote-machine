@@ -13,6 +13,7 @@ export default class extends Component {
     }
   }
   getQuote = () => {
+    this.setState(prevState => ({...prevState,isLoading:true}))
     fetch("https://programming-quotes-api.herokuapp.com/quotes/random")
     .then(res => res.json())
     .then(({en, author}) => this.setState({en,author,isLoading:false}))
